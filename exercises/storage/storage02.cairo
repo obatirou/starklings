@@ -2,8 +2,6 @@
 
 # Starknet storage can be though about as a hashmap
 
-# I AM NOT DONE
-
 # TODO
 # Create a storage named wallet, mapping a felt to another
 # Create a storage named height_map, mapping two felts to another
@@ -11,7 +9,26 @@
 
 # TESTS #
 
+struct Id:
+    member age : felt
+    member height : felt
+    member married : felt
+end
+
 from starkware.cairo.common.cairo_builtins import HashBuiltin
+
+@storage_var
+func wallet(in: felt) -> (res : felt):
+end
+
+@storage_var
+func height_map(one: felt, two: felt) -> (res : felt):
+end
+
+@storage_var
+func id(in: felt) -> (res : Id):
+end
+
 
 @external
 func test_wallet{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}():
